@@ -1,0 +1,22 @@
+Ejercicio 3 - Configuración del job
+
+Job: job_ventas_dylan
+
+Tarea 1
+  Nombre:  cargar_ventas
+  Tipo:    Notebook
+  Ruta:    01_cargar_ventas
+  Cómputo: Serverless
+
+Tarea 2
+  Nombre:  transformar_ventas
+  Tipo:    Notebook
+  Ruta:    02_transformar_ventas
+  Cómputo: Serverless
+  Depends on: cargar_ventas
+  Run if dependencies: All succeeded
+
+Ejecuciones
+  1. Manual - Succeeded (58 s)
+  2. Manual con error controlado - Failed (cargar_ventas falló; transformar_ventas no se ejecutó: Upstream failed)
+  3. Manual después de corregir - Succeeded (31 s)
